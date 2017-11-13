@@ -5,42 +5,50 @@
  - Inspired by Google's Inbox
 
 # Definitions
-- TODO or TODO item
-- Action
-- Association
-  - similar to a git commit
+
+### TODO
+  - Represents a "Thing" to be done, e.g.
+    - JIRA Ticket
+    - GitHub Pull Request
+    - Slack DM
+  - Does not contain the thing, but is a reference to it in the 3rd party system
+- CANNOT be changed directly, only through a defined `Action`
+- HAS a "state" indicating general todo state of item.
+  - NEXT
+    - is ready to be started
+  - WAITING
+    - cannot be started due to blocking external factors
+  - DONE
+    - needs no more action
+
+### Action
+  - Represents something to be done to a TODO.
+  - Examples
+    - Merge a GitHub Pull Request
+    - Mark a JIRA ticket as 'Done'
+    - Respond to a Slack DM
 
 # Specifications
- - Begins as a proposial, and ends up as the manual and internal documentation
+## User Interface
+### Front Page
  - MUST have single page with ALL releavent notifications
+    - MUST callout higher priority items.
     - MUST be able to act on items with most common actions
     - MUST display actions specific to todo item type
     - MUST link to more detailed view of todo item
- - MUST be able to create a todo item.
-    - MUST be able to create within 3rd party systems
+ - MUST be able to quickly create a todo item.
+    - WILL create within 3rd party systems
     - SHOULD only ask for minimal set of information needed to create
- - Source of truth for todo items MUST be from the source of the todo item
- - MUST be able to associate todo items together with the following
-     associations:
-     - NEXT
-     - MERGE
-     - SPLIT
-     - RESOLVE
-     - IGNORE
-     - INIT
-     - FORK
- - Associations CAN have many parents
- - The set of associations CANNOT have any cycles
-     - AKA, An association CANNOT be it's own ancester/descendent.
- - Associations must be immutable.
- - An association MAY be associated with an action.
- - Actions are specific to todo source.
-     - An action applied to a todo produces a set of associatons to apply to
-         the todo
- - Associations provide historical context for a set of todos. Associations
-     CANNOT represent the current state of todos.
- - MAY have at most one  active todo.
-     - CANNOT perform actions on todos while there is an active todo.
+    
+### TODO Detail
+  - MUST show ALL available information about specific TODO item
+  - MUST show ALL available actions about specific TODO item
+    
+### Settings
+  - MUST show a list of available integrations
+  - MUST be able to connect to 3rd party accounts
+  - MUST be able to disconnect to connected accounts
+  - MUST show any additional options for a specific 3rd party integration
 
 # Modules
  - Core (TODOS)
