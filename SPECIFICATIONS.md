@@ -8,6 +8,7 @@
 - TODO or TODO item
 - Action
 - Association
+  - similar to a git commit
 
 # Specifications
  - Begins as a proposial, and ends up as the manual and internal documentation
@@ -29,11 +30,9 @@
      - INIT
      - FORK
  - Associations CAN have many parents
- - Assoications CAN have many children
  - The set of associations CANNOT have any cycles
-     - AKA, For every pair of assoications, A and B, A cannot be both an ancestor
-         and desendent of B.
- - Associations must be immutable. Once created, they cannot be modified.
+     - AKA, An association CANNOT be it's own ancester/descendent.
+ - Associations must be immutable.
  - An association MAY be associated with an action.
  - Actions are specific to todo source.
      - An action applied to a todo produces a set of associatons to apply to
