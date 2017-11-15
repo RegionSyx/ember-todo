@@ -1,0 +1,27 @@
+{{#paper-list}}
+    {{#paper-subheader}}{{title}}{{/paper-subheader}}
+{{#paper-content class="md-whiteframe-z2"}}
+    {{#each todos as |todo|}}
+        {{#paper-item  class="md-3-line" as |controls|}}
+            {{paper-icon "merge_type" class="md-avatar-icon"}}
+            <div class="md-list-item-text">
+                <h3>Pull Request</h3>
+                <h4>{{todo.base.label}} -- {{todo.head.label}}</h4>
+                <p>{{todo.title}}</p>
+            </div>
+            <div class="md-secondary-container">
+                {{#controls.button iconButton=true secondary=true}}
+                    {{paper-icon "snooze"}}
+                {{/controls.button}}
+                {{#controls.button iconButton=true secondary=true}}
+                    {{paper-icon "info"}}
+                {{/controls.button}}
+                {{#controls.button iconButton=true primary=true}}
+                    {{paper-icon "check"}}
+                {{/controls.button}}
+            </div>
+        {{/paper-item}}
+        {{paper-divider}}
+    {{/each}}
+{{/paper-content}}
+{{/paper-list}}

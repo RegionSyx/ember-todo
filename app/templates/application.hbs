@@ -1,5 +1,16 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
+{{#paper-toolbar}}
+{{#paper-toolbar-tools}}
+<h2>Todo App</h2>
+<span class="flex"></span>
+{{#if session.isAuthenticated}}
+{{#paper-button onClick=(action "logout")}}
+Log Out
+{{/paper-button}}
+{{else}}
+{{#paper-button onClick=(action "login")}}
+Log In
+{{/paper-button}}
+{{/if}}
+{{/paper-toolbar-tools}}
+{{/paper-toolbar}}
 {{outlet}}
